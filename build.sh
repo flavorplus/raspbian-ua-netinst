@@ -20,6 +20,15 @@ rm bootfs/System*
 rm bootfs/config-*
 mv bootfs/vmlinuz* bootfs/kernel_install.img
 
+#install config files
+if [ -f installer-config.txt ]; then
+    cp installer-config.txt bootfs/installer-config.txt
+fi
+
+if [ -f post-install.txt ]; then
+    cp post-install.txt bootfs/post-install.txt
+fi
+
 # initialize rootfs
 rm -rf rootfs
 mkdir -p rootfs/bin/
